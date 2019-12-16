@@ -2,7 +2,7 @@
 ## A Random Procedural City Generator
 ### By Fazil Shaikh and Jon Mallozzi
 
-inspired by these articles: [medium article](https://medium.com/@Rototu/making-a-procedural-skyscraper-city-generator-with-three-js-and-webgl2-8f8b721bd044),
+inspired by these articles/repositories: [medium article](https://medium.com/@Rototu/making-a-procedural-skyscraper-city-generator-with-three-js-and-webgl2-8f8b721bd044),
 [threex.proceduralcity
 ](https://github.com/jeromeetienne/threex.proceduralcity),
 [procedural-sckyscraper](https://github.com/Rototu/procedural-sckyscraper-city-generator-and-shader/blob/master/main.js),
