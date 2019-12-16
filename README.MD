@@ -1,6 +1,6 @@
-#Small City Generator
-##A Random Procedural City Generator
-###By Fazil Shaikh and Jon Mallozzi
+# Small City Generator
+## A Random Procedural City Generator
+### By Fazil Shaikh and Jon Mallozzi
 
 
 Live version of code is visible at by [clicking here](http://www.cs.usm.maine.edu/~mallozzi/finalproject/ProceduralCity.html)
