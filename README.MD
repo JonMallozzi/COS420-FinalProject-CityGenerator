@@ -3,7 +3,7 @@
 ### By Fazil Shaikh and Jon Mallozzi
 
 
-Live version of code is visible at by [clicking here](http://www.cs.usm.maine.edu/~mallozzi/finalproject/ProceduralCity.html)
+Live version of code is visible at by [clicking here](http://www.cs.usm.maine.edu/~mallozzi/finalProject/ProceduralCity.html)
 
 All textures are in textures folder <br/>
 Build contains all of the three.js files to get project to work<br/>
