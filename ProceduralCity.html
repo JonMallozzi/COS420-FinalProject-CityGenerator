@@ -437,8 +437,10 @@
 				
 				let treeMaterial = new THREE.MeshLambertMaterial({color: 0x736b5c});
 				
-				let branchMaterial = new THREE.MeshLambertMaterial({color: 0x216e41});
-												
+				let branchColors = [0x306030, 0xff7f50, 0xc30b4e,0xffa631, 0xfffafa, 0xf8f8ff];
+				let colorRand = Math.floor(Math.random() * branchColors.length);
+				let branchMaterial = new THREE.MeshLambertMaterial({color: branchColors[colorRand]});
+
 				// Create a the mesh for the trunk
 				let trunkGeometry = new THREE.BoxGeometry(2, treeHeight, 2);
 				let trunkMesh = new THREE.Mesh(trunkGeometry, treeMaterial);
@@ -465,13 +467,13 @@
 				branchMesh4.position.set(x, treeHeight+5, z);
 
 				//an array to randomly swap between tree types
-				let branchMeshs = [branchMesh1,branchMesh2,branchMesh3,branchMesh4];
+				let branchMeshes = [branchMesh1,branchMesh2,branchMesh3,branchMesh4];
 
 				// Rotate the tree in a random direction
-				branchMeshs[treeRand].rotation.y = Math.random();
+				branchMeshes[treeRand].rotation.y = Math.random();
 
-				// Add the branch / trunk to the tree components list
-				this.components.push(branchMeshs[treeRand], trunkMesh);
+				// Add the branch and trunk to the tree components list
+				this.components.push(branchMeshes[treeRand], trunkMesh);
 			
 				// makes the tree a single mesh based on its components
 				this.getMergedMesh = function () {
@@ -504,6 +506,9 @@
 			//building textures
 		    let buildingTextures = [11];
 			buildingTextures[0] = new THREE.TextureLoader().load( 'textures/building0.jpg' );
+			buildingTextures[0].repeat.set(4, 4);
+			buildingTextures[0].wrapS = THREE.RepeatWrapping;
+			buildingTextures[0].wrapT = THREE.RepeatWrapping;
 
 			buildingTextures[1] = new THREE.TextureLoader().load( 'textures/building1.jpg' );
 			buildingTextures[1].repeat.set(3, 5);
