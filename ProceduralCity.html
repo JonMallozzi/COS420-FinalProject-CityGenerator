@@ -506,22 +506,17 @@
 			//building textures
 		    let buildingTextures = [11];
 			buildingTextures[0] = new THREE.TextureLoader().load( 'textures/building0.jpg' );
-			buildingTextures[0].repeat.set(4, 4);
+			buildingTextures[0].repeat.set(8, 8);
 			buildingTextures[0].wrapS = THREE.RepeatWrapping;
 			buildingTextures[0].wrapT = THREE.RepeatWrapping;
 
-			buildingTextures[1] = new THREE.TextureLoader().load( 'textures/building1.jpg' );
-			buildingTextures[1].repeat.set(3, 5);
-			buildingTextures[1].wrapS = THREE.RepeatWrapping;
-			buildingTextures[1].wrapT = THREE.RepeatWrapping;
-
-			for(let i = 2; i < 10; i++ ){
+			for(let i = 1; i < 10; i++ ){
 				buildingTextures[i] = new THREE.TextureLoader().load( 'textures/building' + i + '.jpg');
 			}
 
 			//the number that chooses a random texture from the array and random shape
 			let buildingRand = Math.floor(Math.random() * buildingTextures.length);
-			let shapeRand = Math.floor(Math.random() * 3);
+			let shapeRand = Math.floor(Math.random() * 10);
 			let treeRand = Math.floor(Math.random() * 4);
 
 			// Create a mesh we're going to use for our buildings
@@ -583,8 +578,19 @@
 				let shapeMaterials = [boxMaterials,roundMaterials,coneMaterials];
 
 				//chooses a random shape for the building
-				let mesh = new THREE.Mesh(shapeGeometries[shapeRand],shapeMaterials[shapeRand]);
-
+				let mesh;
+				// 50 percent of buildings are box geometry
+				if (shapeRand <= 5){
+				mesh = new THREE.Mesh(shapeGeometries[0],shapeMaterials[0]);
+				}
+				// 30 percent of buildings are cylinder geometry
+				else if (shapeRand > 5 && shapeRand <= 8){
+				mesh = new THREE.Mesh(shapeGeometries[1],shapeMaterials[1]);
+				}
+				// 20 percent of buildings are cone geometry
+				else if (shapeRand > 8){
+				mesh = new THREE.Mesh(shapeGeometries[2],shapeMaterials[2]);
+				}
 				mesh.position.set(position.x, position.y, position.z);
 			
 				mesh.receiveShadow = true;
@@ -904,7 +910,7 @@
 						case 'r':
 							viewType = "skyview";
 							buildingRand = Math.floor(Math.random() * buildingTextures.length);
-							shapeRand = Math.floor(Math.random() * 3);
+							shapeRand = Math.floor(Math.random() * 10);
 							treeRand = Math.floor(Math.random() * 4);
 							reset();
 						case '1':
